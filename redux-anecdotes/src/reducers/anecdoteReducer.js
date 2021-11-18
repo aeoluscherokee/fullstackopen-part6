@@ -38,6 +38,9 @@ const reducer = (state = initialState, action) => {
       console.log(action.data);
       return [...state, action.data];
     }
+    case 'INIT_ANECDOTES': {
+      return action.data;
+    }
     default:
       return state;
   }
