@@ -64,4 +64,11 @@ export const createAnecdote = (content) => {
   };
 };
 
+export const initializeAnecdotes = (anecdotes) => {
+  return {
+    type: 'INIT_ANECDOTES',
+    data: anecdotes,
+  };
+};
+
 export default reducer;
