@@ -9,13 +9,20 @@ const notificationReducer = (state = '', action) => {
   }
 };
 
+let timeoutChecker;
+
 export const showNotification = (content, t) => {
   return async (dispatch) => {
     dispatch({
       type: 'SHOW',
       content,
     });
-    setTimeout(
+
+    if (timeoutChecker) {
+      clearTimeout(timeoutChecker);
+    }
+
+    timeoutChecker = setTimeout(
       () =>
         dispatch({
           type: 'HIDE',
